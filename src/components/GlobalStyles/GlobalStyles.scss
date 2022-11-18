@@ -23,3 +23,9 @@ a {
 li {
   list-style: none;
 }
+button,
+input,
+[tabindex] {
+  outline: none;
+  border: none;
+}

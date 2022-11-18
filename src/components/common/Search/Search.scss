@@ -1,20 +1,107 @@
 .wrapper-search {
+  --search-border-radius: 92px;
+  --search-height: 46px;
+  --search-top-spacer: 7px;
+  --search-button-width: 52px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
+.logo {
+  width: 100px;
+  height: 60px;
+  margin: 0 40px;
+}
+
+.search {
+  width: 840px;
+  position: relative;
+  display: flex;
+  height: var(--search-height);
+  padding-left: 15px;
+  background-color: rgba(22, 24, 35, 0.06);
+  border-radius: var(--search-border-radius);
+  border: 1.5px solid transparent;
+}
+
+.search input {
+  flex: 1;
+  height: 100%;
+  color: black;
+  font-size: 1.6rem;
+  background-color: transparent;
+}
+
+.search input:not(:placeholder-shown) ~ .search-btn {
+  color: black;
+}
+
+.search::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: var(--search-button-width);
+  width: 1px;
+  height: calc(var(--search-height) - var(--search-top-spacer) * 2);
+  background-color: rgba(22, 24, 35, 0.12);
+}
+.search:focus-within {
+  border-color: rgba(22, 24, 35, 0.2);
+}
+
+.clear,
+.loading {
+  position: absolute;
+  right: calc(var(--search-button-width) + 16px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.loading {
+  animation: spinner 3s linear infinite;
+}
+
+.search-btn {
+  width: var(--search-button-width);
+  height: 100%;
+  border-top-right-radius: var(--search-border-radius);
+  border-bottom-right-radius: var(--search-border-radius);
+  font-size: 2rem;
+  color: rgba(22, 24, 35, 0.34);
+  &:hover {
+    cursor: pointer;
+    background-color: rgba(22, 24, 35, 0.03);
+  }
+  &:active {
+    background-color: rgba(22, 24, 35, 0.06);
+  }
+}
+//Cart
 .cart {
+  margin: 0 10px;
+  width: 40px;
+}
+.cart a {
   position: relative;
 }
-.cart span {
+.cart a span {
   position: absolute;
-  top: -10px;
-  right: 0;
-  width: 20px;
-  height: 20px;
+  top: -20px;
+  right: -10px;
+  width: 22px;
+  height: 18px;
   border-radius: 50%;
   text-align: center;
   background-color: #e94560;
-  font-size: 12px;
+  font-size: 15px;
   color: #fff;
+}
+
+.cart a svg {
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  color: black;
 }
