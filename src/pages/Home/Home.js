@@ -1,5 +1,10 @@
+import SlideCard from "../SlideCard/SlideCard";
 function Home() {
-  return <h2>Home</h2>;
+  return (
+    <div className="home">
+      <SlideCard />
+    </div>
+  );
 }
 
 export default Home;

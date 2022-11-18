@@ -1,11 +1,12 @@
+import Categories from "../common/Categories/Categories";
 import Header from "../common/Header/Header";
-import Sidebar from "../common/Sidebar/Sidebar";
+import "../Layout/DefaultLayout.scss";
 function DefaultLayout({ children }) {
   return (
     <div>
       <Header />
       <div className="container">
-        <Sidebar />
+        <Categories />
         <div className="content">{children}</div>
       </div>
     </div>
