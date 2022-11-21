@@ -4,6 +4,7 @@ import {
   faCircleXmark,
   faMagnifyingGlass,
   faSpinner,
+  faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import t1 from "../../../assets/images/T1.jpg";
 import "../Search/Search.scss";
@@ -22,11 +23,24 @@ function Search() {
           <FontAwesomeIcon icon={faMagnifyingGlass} />
         </button>
       </div>
-      <div className="cart">
-        <Link to="/cart">
-          <FontAwesomeIcon icon={faCartShopping} />
-          <span>0</span>
-        </Link>
+      <div className="action">
+        <div className="cart">
+          <Link to="/cart">
+            <div className="cart-icon">
+              <FontAwesomeIcon icon={faCartShopping} />
+              <span>0</span>
+            </div>
+            <span className="cart-text"> Cart</span>
+          </Link>
+        </div>
+        <div className="user">
+          <Link to="/login">
+            <div className="user-icon">
+              <FontAwesomeIcon icon={faUser} />
+            </div>
+            <span className="user-text"> Login</span>
+          </Link>
+        </div>
       </div>
     </div>
   );

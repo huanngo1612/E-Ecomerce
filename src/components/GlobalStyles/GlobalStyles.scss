@@ -1,6 +1,16 @@
 @import "normalize.css";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 :root {
+  //Color
+  --primary-color: #fe2c55;
+  --black: #000;
+  --white: #fff;
+  --text-color: #333;
+
+  //Default layout
+  --default-layout-header-height: 60px;
+  --default-layout-width: 1150px;
+  --default-layout-horizontal-spacer: 24px;
 }
 * {
   padding: 0;
