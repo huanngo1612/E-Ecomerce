@@ -24,6 +24,7 @@ html {
 body {
   font-family: "Poppins", sans-serif;
   font-size: 1.6rem;
+  height: 1000px;
 }
 
 a {
@@ -42,4 +43,28 @@ input,
 
 button {
   cursor: pointer;
+}
+
+/**
+ * scrollbar style
+ */
+
+body::-webkit-scrollbar {
+  width: 15px;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--white);
+  border-left: 1px solid var(--cultured);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: hsl(0, 0%, 80%);
+  border: 3px solid var(--white);
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: hsl(0, 0%, 70%);
 }

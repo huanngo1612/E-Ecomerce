@@ -1,8 +1,9 @@
-import SlideCard from "../SlideCard/SlideCard";
+import ListProduct from "../../components/Product/ListProduct";
+
 function Home() {
   return (
     <div className="home">
-      <SlideCard />
+      <ListProduct />
     </div>
   );
 }

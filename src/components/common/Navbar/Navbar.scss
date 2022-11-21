@@ -3,29 +3,7 @@
   justify-content: space-between;
   align-items: center;
 }
-.categories {
-  display: flex;
-  align-items: center;
-  background-color: #f6f9fc;
-  padding: 0 30px;
-  border-radius: 5px;
-  height: 6vh;
-  margin-top: 5px;
-}
 
-.categories span {
-  margin-right: 20px;
-  font-size: 30px;
-  margin-top: 10px;
-}
-
-.categories h4 {
-  font-weight: 500;
-  margin-top: 10px;
-}
-.categories h4 svg {
-  margin-left: 10px;
-}
 .nav {
   display: flex;
   line-height: 8vh;

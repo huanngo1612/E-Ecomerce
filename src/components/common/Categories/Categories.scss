@@ -1,14 +1,29 @@
-.category {
+.category-wrapper {
   max-width: 90%;
   width: 23%;
   box-shadow: rgb(43 52 69 /10%) 0 4px 16px;
-  padding: 15px 0;
   border-radius: 5px;
   margin-top: 5px;
-  min-height: 600px;
-  height: 600px;
-  overflow-x: hidden;
-  overflow-y: auto;
+  border-radius: 15px;
+  overflow: hidden;
+  h4 {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    box-shadow: 0 0 17px 0 rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+.category {
+  padding: 10px 0;
+  display: none;
+}
+
+.showCategories:checked ~ .category {
+  display: block;
 }
 .category img {
   width: 30px;

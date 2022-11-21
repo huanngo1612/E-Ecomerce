@@ -1,4 +1,8 @@
 .wrapper {
   padding: 10px 80px;
   box-shadow: -1px 15px 17px -8px rgba(0, 0, 0, 0.1);
+  position: sticky !important;
+  top: 0;
+  z-index: 1;
+  background-color: antiquewhite;
 }

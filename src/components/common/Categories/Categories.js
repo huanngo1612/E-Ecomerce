@@ -2,10 +2,10 @@ import "../Categories/Categories.scss";
 import cat1 from "../../../assets/images/cat1.png";
 import cat2 from "../../../assets/images/cat2.png";
 import cat3 from "../../../assets/images/cat3.png";
-import cat4 from "../../../assets/images/cat4.png";
 import cat5 from "../../../assets/images/cat5.png";
-import cat6 from "../../../assets/images/cat6.png";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 function Categories() {
   const data = [
     {
@@ -70,15 +70,28 @@ function Categories() {
     },
   ];
   return (
-    <div className="category">
-      {data.map((value, index) => {
-        return (
-          <div className="box" key={index}>
-            <img src={value.cateImg} alt="" />
-            <span>{value.cateName}</span>
-          </div>
-        );
-      })}
+    <div className="category-wrapper">
+      <input
+        type="checkbox"
+        id="showCategories"
+        hidden
+        className="showCategories"
+      />
+      <label for="showCategories">
+        <h4>
+          Categories <FontAwesomeIcon icon={faChevronDown} />
+        </h4>
+      </label>
+      <div className="category">
+        {data.map((value, index) => {
+          return (
+            <div className="box" key={index}>
+              <img src={value.cateImg} alt="" />
+              <span>{value.cateName}</span>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

@@ -1,18 +1,9 @@
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBorderAll, faChevronDown } from "@fortawesome/free-solid-svg-icons";
+
 import "../Navbar/Navbar.scss";
 function Navbar() {
   return (
     <div className="wrapper-navbar">
-      <div className="categories">
-        <span>
-          <FontAwesomeIcon icon={faBorderAll} />
-        </span>
-        <h4>
-          Categories <FontAwesomeIcon icon={faChevronDown} />
-        </h4>
-      </div>
       <div className="navlink">
         <ul className="nav">
           <li>
