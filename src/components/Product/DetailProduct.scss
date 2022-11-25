@@ -1,0 +1,42 @@
+.detail-product-wrapper {
+  display: flex;
+  height: 1000px;
+  img {
+    width: 100%;
+  }
+}
+.product-img {
+  width: 33%;
+  margin-right: 50px;
+}
+.small-img-group {
+  display: flex;
+  justify-content: space-between;
+}
+.smaill-img-col {
+  flex-basis: 24%;
+  cursor: pointer;
+  border: 1px solid;
+}
+.product-details {
+  width: 50%;
+  h4 {
+    padding: 20px 0;
+  }
+  input {
+    width: 50px;
+    height: 47px;
+    padding-left: 8px;
+    font-size: 16px;
+    margin-right: 10px;
+    border: 1px solid;
+  }
+  button {
+    background-color: #088178;
+    color: #fff;
+    padding: 10px;
+  }
+  span {
+    line-height: 25px;
+  }
+}

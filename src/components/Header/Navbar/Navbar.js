@@ -18,18 +18,19 @@ const mainNav = [
 function Navbar() {
   const { pathname } = useLocation();
   const activeNav = mainNav.findIndex((e) => e.path === pathname);
-  console.log(activeNav);
 
   return (
     <div className="wrapper-navbar">
       <div className="navlink">
         <ul className="nav">
           {mainNav.map((item, index) => (
-            <li
-              key={index}
-              className={`${index === activeNav ? "active" : ""}`}
-            >
-              <Link to={item.path}>{item.title}</Link>
+            <li key={index}>
+              <Link
+                to={item.path}
+                className={`${index === activeNav ? "active" : ""}`}
+              >
+                {item.title}
+              </Link>
             </li>
           ))}
         </ul>

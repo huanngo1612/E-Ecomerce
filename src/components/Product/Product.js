@@ -19,7 +19,7 @@ function Product({ item }) {
     >
       <div className="product-wapper">
         <div className="product-banner">
-          <img src={item.img} alt="" />
+          <img src={item.image[0]} alt="" />
           <div className="product-actions">
             <button className="btn-action">
               <FontAwesomeIcon icon={faHeart} />

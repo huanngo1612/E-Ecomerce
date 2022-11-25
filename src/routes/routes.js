@@ -8,7 +8,7 @@ const publicRoutes = [
   { path: "/about", component: About, layout: DefaultLayout },
   { path: "/product/:id", component: Product, layout: HeaderOnly },
   { path: "/login", component: Login, layout: HeaderOnly },
-  { path: "/register", component: Register, layout: null },
+  { path: "/register", component: Register, layout: HeaderOnly },
 ];
 const privateRoutes = [];
 export { publicRoutes, privateRoutes };
