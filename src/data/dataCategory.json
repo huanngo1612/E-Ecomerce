@@ -1,0 +1,42 @@
+[
+  {
+    "cateImg": "https://i.ibb.co/80yP4KY/airpod.jpg",
+    "cateName": "Fashion"
+  },
+  {
+    "cateImg": "../assets/images/cat2.png",
+    "cateName": "Electronic"
+  },
+  {
+    "cateImg": "../assets/images/cat3.png",
+    "cateName": "Cars"
+  },
+  {
+    "cateImg": "../assets/images/cat5.png",
+    "cateName": "Home & Garden"
+  },
+  {
+    "cateImg": "../assets/images/cat5.png",
+    "cateName": "Gifts"
+  },
+  {
+    "cateImg": "../assets/images/cat5.png",
+    "cateName": "Music"
+  },
+  {
+    "cateImg": "../assets/images/cat5.png",
+    "cateName": "Health & Beauty"
+  },
+  {
+    "cateImg": "../assets/images/cat5.png",
+    "cateName": "Pets"
+  },
+  {
+    "cateImg": "../assets/images/cat5.png",
+    "cateName": "Baby Toys"
+  },
+  {
+    "cateImg": "../assets/images/cat5.png",
+    "cateName": "Groceries"
+  }
+]

@@ -1,5 +1,5 @@
-import Categories from "../common/Categories/Categories";
-import Header from "../common/Header/Header";
+import Categories from "../Categories/Categories";
+import Header from "..//Header/Header";
 import "../Layout/DefaultLayout.scss";
 function DefaultLayout({ children }) {
   return (

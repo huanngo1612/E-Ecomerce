@@ -1,10 +1,11 @@
 .container {
   display: flex;
-  justify-content: space-between;
+  gap: 30px;
   max-width: 90%;
-  margin: auto;
+  margin: 0 auto;
+  margin-top: 24px;
+  width: var(--default-layout-width);
 }
 .content {
-  width: 77%;
-  display: flex;
+  flex: 1;
 }
