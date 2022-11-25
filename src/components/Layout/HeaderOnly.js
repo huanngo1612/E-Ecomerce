@@ -1,4 +1,4 @@
-import Header from "../common/Header/Header";
+import Header from "..//Header/Header";
 
 function HeaderOnly({ children }) {
   return (

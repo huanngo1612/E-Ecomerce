@@ -2,6 +2,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: var(--default-layout-width);
+  margin: 0 auto;
 }
 
 .nav {
@@ -10,26 +12,27 @@
 }
 
 .nav li {
-  padding: 0 30px;
+  padding-right: 30px;
   position: relative;
+  &:hover::after,
+  &.active::after {
+    content: "";
+    width: 40%;
+    height: 2px;
+    background: #088178;
+    position: absolute;
+    bottom: 25px;
+    left: 0;
+  }
 }
 .nav li a {
   font-size: 16px;
   font-weight: 400;
   color: #1a1a1a;
   transition: 0.3s ease;
+  font-weight: 600;
   &:hover,
   &.active {
     color: #088178;
-  }
-  &:hover::after,
-  &.active::after {
-    content: "";
-    width: 30%;
-    height: 2px;
-    background: #088178;
-    position: absolute;
-    bottom: 20px;
-    left: 30px;
   }
 }

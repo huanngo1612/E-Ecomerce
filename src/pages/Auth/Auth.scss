@@ -57,7 +57,12 @@
     margin-right: 5px;
   }
 }
-
+span {
+  width: 100%;
+  a {
+    color: #0274e8;
+  }
+}
 @keyframes slide-up {
   0% {
     transform: translateY(-5rem);
