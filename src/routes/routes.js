@@ -6,6 +6,7 @@ const publicRoutes = [
   { path: "/", component: Home, layout: DefaultLayout },
   { path: "/search", component: Search, layout: HeaderOnly },
   { path: "/adsa", component: Search, layout: HeaderOnly },
+  { path: "/sa", component: Search, layout: HeaderOnly },
 ];
 const privateRoutes = [];
 export { publicRoutes, privateRoutes };
