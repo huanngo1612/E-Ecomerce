@@ -7,8 +7,25 @@ import {
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 import Products from "../../data/dataProduct.json";
+import Pagination from "../Pagination/Pagination";
+import { useState } from "react";
 
 function ListProduct() {
+  const [currentPage, setCurrentPage] = useState(1); // Trang hiện tại
+  const [postsPerPage, setPostPerPage] = useState(5); // Số sản phẩm trên 1 trang
+  const totalPosts = Products.length; // Tổng số sản phẩm
+  let totalPages = Math.ceil(totalPosts / postsPerPage); // Tổng số trang
+
+  const lastPostIndex = currentPage * postsPerPage;
+  const firstPostIndex = lastPostIndex - postsPerPage;
+  const currentPosts = Products.slice(firstPostIndex, lastPostIndex); // Các sản phẩm của một trang
+
+  const handlePrev = () => {
+    setCurrentPage(currentPage - 1);
+  };
+  const handleNext = () => {
+    setCurrentPage(currentPage + 1);
+  };
   return (
     <>
       <div className="filter">
@@ -34,23 +51,36 @@ function ListProduct() {
         </div>
         <div className="filter-page">
           <span className="page-num">
-            <span className="page-current">1</span>/14
+            <span className="page-current">{currentPage} </span> / {totalPages}
           </span>
           <div className="page-control">
-            <a href="#" className="page-button">
+            <button
+              className="page-button"
+              onClick={handlePrev}
+              disabled={currentPage === 1 ? true : false}
+            >
               <FontAwesomeIcon icon={faChevronLeft} />
-            </a>
-            <a href="#" className="page-button">
+            </button>
+            <button
+              className="page-button"
+              onClick={handleNext}
+              disabled={currentPage === totalPages ? true : false}
+            >
               <FontAwesomeIcon icon={faChevronRight} />
-            </a>
+            </button>
           </div>
         </div>
       </div>
       <div className="products">
-        {Products.map((item, id) => (
+        {currentPosts.map((item, id) => (
           <Product item={item} key={id} />
         ))}
       </div>
+      <Pagination
+        totalPages={totalPages}
+        setCurrentPage={setCurrentPage}
+        currentPage={currentPage}
+      />
     </>
   );
 }
