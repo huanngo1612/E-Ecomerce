@@ -7,7 +7,7 @@
   justify-content: space-between;
   align-items: center;
   max-width: var(--default-layout-width);
-  margin: 0 auto;
+  margin: 5px auto;
 }
 
 .logo {
@@ -121,4 +121,8 @@
   margin-left: 7px;
   color: black;
   font-weight: 600;
+}
+.user-logout {
+  padding: 10px;
+  font-weight: bold;
 }
