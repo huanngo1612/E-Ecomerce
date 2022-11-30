@@ -1,7 +1,7 @@
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext, useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import loginImg from "../../assets/images/login.png";
 import { AuthConext } from "../../context/AuthContext";
 import "../Auth/Auth.scss";
@@ -12,8 +12,7 @@ function Login() {
   const emailRef = useRef();
   const passwordRef = useRef();
 
-  const { login } = useContext(AuthConext);
-
+  const { login, currentUser } = useContext(AuthConext);
   const submitForm = async (e) => {
     setError("");
     e.preventDefault();
@@ -24,7 +23,9 @@ function Login() {
       setError("Invalid Login");
     }
   };
-  return (
+  return currentUser ? (
+    <Navigate to="/" />
+  ) : (
     <section className="auth">
       <div className="login-img">
         <img src={loginImg} alt="" />

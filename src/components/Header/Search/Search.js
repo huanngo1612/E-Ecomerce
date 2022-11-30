@@ -7,6 +7,7 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import t1 from "../../../assets/images/T1.jpg";
+import NoImage from "../../../assets/images/NoImage.jpg";
 import "../Search/Search.scss";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
@@ -38,11 +39,19 @@ function Search() {
         </div>
         <div className="user">
           {currentUser ? (
-            <div>
-              <h4>Hi, {currentUser.email} </h4>
-              <button className="user-logout" onClick={() => logout()}>
-                Log out
-              </button>
+            <div className="user-menu">
+              <img src={NoImage} className="user-img" alt="" />
+              <h4 className="user-name">Hi, {currentUser.email} </h4>
+              <ul className="user-menu-item">
+                <li className="">
+                  <Link to="/profile">Profile </Link>
+                </li>
+                <li className="select-input-item">
+                  <span className="user-logout" onClick={() => logout()}>
+                    Log out
+                  </span>
+                </li>
+              </ul>
             </div>
           ) : (
             <Link to="/login">
