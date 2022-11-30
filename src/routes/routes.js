@@ -4,7 +4,7 @@ import { Home, Login, Product, Register, Contact, About } from "../pages/index";
 //public Routes
 const publicRoutes = [
   { path: "/", component: Home, layout: DefaultLayout },
-  { path: "/contact", component: Contact, layout: DefaultLayout },
+  { path: "/contact", component: Contact, layout: HeaderOnly },
   { path: "/about", component: About, layout: DefaultLayout },
   { path: "/product/:id", component: Product, layout: HeaderOnly },
   { path: "/login", component: Login, layout: HeaderOnly },
