@@ -1,7 +1,29 @@
 import { Link } from "react-router-dom";
+import { useContext, useRef, useState } from "react";
 import registerImg from "../../assets/images/register.png";
 import "../Auth/Auth.scss";
+import { AuthConext } from "../../context/AuthContext";
 function Register() {
+  const [error, setError] = useState("");
+
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const confirmPasswordRef = useRef();
+
+  const { register } = useContext(AuthConext);
+
+  const submitForm = async (e) => {
+    e.preventDefault();
+    setError("");
+    if (passwordRef.current.value !== confirmPasswordRef.current.value) {
+      return setError("Password does not match");
+    }
+    try {
+      await register(emailRef.current.value, passwordRef.current.value);
+    } catch (error) {
+      setError(error.message);
+    }
+  };
   return (
     <section className="auth">
       <div className="register-img">
@@ -10,10 +32,21 @@ function Register() {
       <div className="form">
         <h2>Register</h2>
         <form>
-          <input type="text" placeholder="Email" required />
-          <input type="password" placeholder="Password" required />
-          <input type="password" placeholder="Confirm Password" required />
-          <button text>Register</button>
+          {error && <label>{error}</label>}
+          <input type="text" placeholder="Email" required ref={emailRef} />
+          <input
+            type="password"
+            placeholder="Password"
+            required
+            ref={passwordRef}
+          />
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            required
+            ref={confirmPasswordRef}
+          />
+          <button onClick={submitForm}>Register</button>
         </form>
         <span>
           <p>

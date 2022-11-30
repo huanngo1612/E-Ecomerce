@@ -9,7 +9,10 @@ import {
 import t1 from "../../../assets/images/T1.jpg";
 import "../Search/Search.scss";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthConext } from "../../../context/AuthContext";
 function Search() {
+  const { currentUser, logout } = useContext(AuthConext);
   return (
     <div className="wrapper-search">
       <img src={t1} className="logo" alt="" />
@@ -34,12 +37,21 @@ function Search() {
           </Link>
         </div>
         <div className="user">
-          <Link to="/login">
-            <div className="user-icon">
-              <FontAwesomeIcon icon={faUser} />
+          {currentUser ? (
+            <div>
+              <h4>Hi, {currentUser.email} </h4>
+              <button className="user-logout" onClick={() => logout()}>
+                Log out
+              </button>
             </div>
-            <span className="user-text"> Login</span>
-          </Link>
+          ) : (
+            <Link to="/login">
+              <div className="user-icon">
+                <FontAwesomeIcon icon={faUser} />
+              </div>
+              <span className="user-text"> Login</span>
+            </Link>
+          )}
         </div>
       </div>
     </div>

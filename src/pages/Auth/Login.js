@@ -1,9 +1,29 @@
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
+import { useContext, useRef, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import loginImg from "../../assets/images/login.png";
+import { AuthConext } from "../../context/AuthContext";
 import "../Auth/Auth.scss";
 function Login() {
+  const navigate = useNavigate();
+  const [error, setError] = useState("");
+
+  const emailRef = useRef();
+  const passwordRef = useRef();
+
+  const { login } = useContext(AuthConext);
+
+  const submitForm = async (e) => {
+    setError("");
+    e.preventDefault();
+    try {
+      await login(emailRef.current.value, passwordRef.current.value);
+      navigate("/");
+    } catch (error) {
+      setError("Invalid Login");
+    }
+  };
   return (
     <section className="auth">
       <div className="login-img">
@@ -12,9 +32,15 @@ function Login() {
       <div className="form">
         <h2>Login</h2>
         <form>
-          <input type="text" placeholder="Email" required />
-          <input type="password" placeholder="Password" required />
-          <button text>Login</button>
+          {error && <label>{error}</label>}
+          <input type="text" placeholder="Email" required ref={emailRef} />
+          <input
+            type="password"
+            placeholder="Password"
+            required
+            ref={passwordRef}
+          />
+          <button onClick={submitForm}>Login</button>
           <p>--or--</p>
         </form>
         <button className="btn-google">

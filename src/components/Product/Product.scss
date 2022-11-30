@@ -4,6 +4,10 @@
   overflow: hidden;
   width: 225px;
   height: 350px;
+  &:hover {
+    box-shadow: 0 0 10px hsl(0deg 0% 0% / 20%);
+    scale: 1.05;
+  }
 }
 .product-wapper:hover .product-actions {
   transform: translateX(0);

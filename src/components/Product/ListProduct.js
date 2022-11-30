@@ -12,7 +12,7 @@ import { useState } from "react";
 
 function ListProduct() {
   const [currentPage, setCurrentPage] = useState(1); // Trang hiện tại
-  const [postsPerPage, setPostPerPage] = useState(5); // Số sản phẩm trên 1 trang
+  const [postsPerPage, setPostPerPage] = useState(4); // Số sản phẩm trên 1 trang
   const totalPosts = Products.length; // Tổng số sản phẩm
   let totalPages = Math.ceil(totalPosts / postsPerPage); // Tổng số trang
 

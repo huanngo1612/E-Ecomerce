@@ -27,6 +27,15 @@
     margin: 20px 0;
   }
   form {
+    label {
+      display: flex;
+      border-radius: 5px;
+      font-size: 13px;
+      background-color: #f7d7da;
+      color: #c8797b;
+      padding: 15px;
+      width: 100%;
+    }
     input {
       margin-top: 15px;
       padding: 15px;
