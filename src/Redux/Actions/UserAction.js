@@ -13,13 +13,13 @@ export const login = (email, password) => async (dispatch) => {
         "Content-Type": "application/json",
       },
     };
-    const { data } = await authApp.signInWithEmailAndPassword(email, password);
+    const { user } = await authApp.signInWithEmailAndPassword(email, password);
     dispatch({
       type: USER_LOGIN_SUCCESS,
-      payload: data,
+      payload: user,
     });
-    localStorage.setItem("userInfo", JSON.stringify(data));
+    localStorage.setItem("userInfo", JSON.stringify(user));
   } catch (error) {
-    dispatch({ type: USER_LOGIN_FAIL, payload: error });
+    dispatch({ type: USER_LOGIN_FAIL, payload: error.message });
   }
 };

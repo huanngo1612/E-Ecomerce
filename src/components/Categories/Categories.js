@@ -12,7 +12,7 @@ function Categories() {
         className="showCategories"
         hidden
       />
-      <label for="showCategories">
+      <label htmlFor="showCategories">
         <h4>
           Categories <FontAwesomeIcon icon={faChevronDown} />
         </h4>
