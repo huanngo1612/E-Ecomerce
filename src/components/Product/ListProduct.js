@@ -12,6 +12,7 @@ import { useState } from "react";
 
 function ListProduct() {
   const [currentPage, setCurrentPage] = useState(1); // Trang hiện tại
+  // eslint-disable-next-line
   const [postsPerPage, setPostPerPage] = useState(4); // Số sản phẩm trên 1 trang
   const totalPosts = Products.length; // Tổng số sản phẩm
   let totalPages = Math.ceil(totalPosts / postsPerPage); // Tổng số trang
@@ -38,14 +39,10 @@ function ListProduct() {
           <FontAwesomeIcon icon={faChevronDown} />
           <ul className="select-input-list">
             <li className="select-input-item">
-              <a href="" className="select-input-link">
-                Giá: Thấp đến cao
-              </a>
+              <div className="select-input-link">Giá: Thấp đến cao</div>
             </li>
             <li className="select-input-item">
-              <a href="" className="select-input-link">
-                Giá: Cao đến thấp
-              </a>
+              <div className="select-input-link">Giá: Cao đến thấp</div>
             </li>
           </ul>
         </div>

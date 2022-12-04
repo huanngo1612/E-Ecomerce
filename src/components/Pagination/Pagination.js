@@ -4,7 +4,6 @@ import {
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 import "../Pagination/Pagination.scss";
-import { useState } from "react";
 function Pagination({ totalPages, setCurrentPage, currentPage }) {
   let pages = [];
 
