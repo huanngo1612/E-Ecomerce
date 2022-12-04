@@ -1,7 +1,8 @@
 import { Fragment } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { publicRoutes } from "./routes/routes";
+import { privateRoutes, publicRoutes } from "./routes/routes";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+import PrivateOutlet from "./components/PrivateOutlet/PrivateOutlet";
 function App() {
   return (
     <Router>
@@ -23,6 +24,23 @@ function App() {
               />
             );
           })}
+          <Route path="/" element={<PrivateOutlet />}>
+            {privateRoutes.map((route, index) => {
+              const Layout = route.layout === null ? Fragment : route.layout;
+              const Page = route.component;
+              return (
+                <Route
+                  key={index}
+                  path={route.path}
+                  element={
+                    <Layout>
+                      <Page />
+                    </Layout>
+                  }
+                />
+              );
+            })}
+          </Route>
         </Routes>
       </div>
     </Router>

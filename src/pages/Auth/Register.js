@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useContext, useRef, useState } from "react";
 import registerImg from "../../assets/images/register.png";
 import "../Auth/Auth.scss";
@@ -10,7 +10,7 @@ function Register() {
   const passwordRef = useRef();
   const confirmPasswordRef = useRef();
 
-  const { register } = useContext(AuthConext);
+  const { register, currentUser } = useContext(AuthConext);
 
   const submitForm = async (e) => {
     e.preventDefault();
@@ -24,7 +24,9 @@ function Register() {
       setError(error.message);
     }
   };
-  return (
+  return currentUser ? (
+    <Navigate to="/" />
+  ) : (
     <section className="auth">
       <div className="register-img">
         <img src={registerImg} alt="" />
