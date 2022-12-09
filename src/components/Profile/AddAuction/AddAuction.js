@@ -33,10 +33,8 @@ function AddAuction() {
     e.preventDefault();
     const currentDate = new Date();
     const dueDate = currentDate.setHours(
-      currentDate.getDate() + durationdRef.current.value
+      currentDate.getHours() + Number(durationdRef.current.value)
     );
-    console.log(durationdRef.current.value);
-    console.log(currentDate.setHours(currentDate.getHours()));
     localStorage.setItem("duration", JSON.stringify(dueDate));
   };
 
@@ -124,7 +122,7 @@ function AddAuction() {
               <FormGroup className="form-group">
                 <Label>Số giờ</Label>
                 <input
-                  type="text"
+                  type="number"
                   placeholder="Nhập số giờ"
                   required
                   ref={durationdRef}
