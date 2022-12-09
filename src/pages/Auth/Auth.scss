@@ -16,17 +16,18 @@
   flex-direction: column;
   align-items: center;
   padding: 20px 50px;
-  width: 45rem;
   animation: slide-up 0.5s ease;
   box-shadow: 0 0 17px 0 rgba(0, 0, 0, 0.1);
   border-radius: 15px;
+  background: var(--primary-color);
   h2 {
-    color: black;
+    color: #fff;
     text-align: center;
     font-size: 20px;
     margin: 20px 0;
   }
   form {
+    width: 100%;
     label {
       display: flex;
       border-radius: 5px;
@@ -37,21 +38,30 @@
       width: 100%;
     }
     input {
-      margin-top: 15px;
-      padding: 15px;
+      border: 1px solid #75777963;
       width: 100%;
-      border-bottom: 1px solid #757779;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
     }
     button {
       margin: 20px 0;
-      background-color: #0274e8;
+      background-color: #fff;
       padding: 10px;
       width: 100%;
       font-weight: bold;
-      color: white;
+      border-radius: 5px;
     }
     p {
       text-align: center;
+      color: rgba(255, 255, 255, 0.735);
+    }
+  }
+  span {
+    p,
+    a {
+      text-align: center;
+      color: #fff;
     }
   }
 }
@@ -65,13 +75,14 @@
   svg {
     margin-right: 5px;
   }
-}
-span {
-  width: 100%;
-  a {
-    color: #0274e8;
+  span {
+    width: 100%;
+    a {
+      color: rgba(255, 255, 255, 0.735);
+    }
   }
 }
+
 @keyframes slide-up {
   0% {
     transform: translateY(-5rem);

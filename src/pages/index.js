@@ -1,7 +1,10 @@
 export { default as Home } from "../pages/Home/Home";
+export { default as Admin } from "../pages/Admin/Admin";
 export { default as Product } from "../pages/Product/Product";
 export { default as Cart } from "../pages/Cart/Cart";
 export { default as Contact } from "../pages/Contact/Contact";
+export { default as Checkout } from "../pages/Checkout/Checkout";
+
 export { default as About } from "../pages/About/About";
 export { default as Login } from "../pages/Auth/Login";
 export { default as Register } from "../pages/Auth/Register";

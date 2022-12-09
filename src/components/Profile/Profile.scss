@@ -1,0 +1,28 @@
+.profile-wrapper {
+  border-radius: 5px;
+  min-width: 300px;
+  box-shadow: -1px 15px 17px -8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  text-align: center;
+}
+.img-profile {
+  width: 100px;
+  padding: 10px;
+}
+.name-profile {
+  padding-top: 10px;
+}
+.email-profile {
+  padding-bottom: 10px;
+}
+.link-profile {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  svg {
+    padding: 20px;
+  }
+  p {
+    margin: 0;
+  }
+}

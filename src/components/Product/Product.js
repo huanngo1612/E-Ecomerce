@@ -6,6 +6,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink } from "react-router-dom";
+import CountdownProduct from "../CountdownProduct/CountdownProduct";
 import "../Product/Product.scss";
 
 function Product({ item }) {
@@ -45,6 +46,7 @@ function Product({ item }) {
         <div className="product-price">
           {item.price}
           <sup>đ</sup>
+          <CountdownProduct />
         </div>
       </div>
     </div>

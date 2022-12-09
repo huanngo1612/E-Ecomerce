@@ -24,7 +24,7 @@ function Pagination({ totalPages, setCurrentPage, currentPage }) {
   if (currentPage < totalPages - 3) {
     pageDot2 = <li className="page-dot">. . .</li>;
   }
-  console.log(pageDot1);
+
   const renderPages = pages.map((page) => {
     if (page < currentPage + 3 && page > currentPage - 3) {
       return (

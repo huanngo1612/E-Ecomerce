@@ -1,0 +1,36 @@
+.title-checkout {
+  font-size: 14px;
+}
+.billing-form .form-group {
+  input {
+    border: 1px solid #75777963;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+  }
+}
+.chechout-cart {
+  padding: 20px;
+  color: #fff;
+  background: var(--primary-color);
+  border-radius: 5px;
+}
+
+.chechout-cart h6,
+h4 {
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.chechout-cart h4 {
+  border-top: 1px solid rgba(221, 221, 221, 0.253);
+  padding-top: 20px;
+}
+.buy-btn {
+  margin-top: 10px;
+  border-radius: 5px;
+  padding: 10px;
+}

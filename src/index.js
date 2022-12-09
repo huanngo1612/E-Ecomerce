@@ -2,8 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import "bootstrap/dist/css/bootstrap.css";
 import GlobalStyles from "../src/components/GlobalStyles/GlobalStyles";
-import { AuthProvider } from "./context/AuthContext";
 import { Provider } from "react-redux";
 import store from "./Redux/store";
 
@@ -11,11 +11,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <AuthProvider>
-        <GlobalStyles>
-          <App />
-        </GlobalStyles>
-      </AuthProvider>
+      <GlobalStyles>
+        <App />
+      </GlobalStyles>
     </Provider>
   </React.StrictMode>
 );

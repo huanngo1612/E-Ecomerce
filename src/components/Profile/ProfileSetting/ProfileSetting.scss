@@ -1,0 +1,25 @@
+.profile-setting-wrapper {
+  width: 100%;
+  form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 50px;
+    box-shadow: 0 0 17px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    input {
+      margin-top: 35px;
+      padding: 20px;
+      width: 100%;
+    }
+    button {
+      margin: 20px 0;
+      background-color: #0274e8;
+      padding: 10px;
+      width: 100%;
+      font-weight: bold;
+      color: white;
+    }
+  }
+}

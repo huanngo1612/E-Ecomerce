@@ -3,6 +3,7 @@ import {
   faCartShopping,
   faCircleXmark,
   faMagnifyingGlass,
+  faRightFromBracket,
   faSpinner,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
@@ -10,10 +11,15 @@ import t1 from "../../../assets/images/T1.jpg";
 import NoImage from "../../../assets/images/NoImage.jpg";
 import "../Search/Search.scss";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { AuthConext } from "../../../context/AuthContext";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../../Redux/Actions/UserAction";
 function Search() {
-  const { currentUser, logout } = useContext(AuthConext);
+  const dispatch = useDispatch();
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+  const logoutHandle = () => {
+    dispatch(logout());
+  };
   return (
     <div className="wrapper-search">
       <img src={t1} className="logo" alt="" />
@@ -22,7 +28,7 @@ function Search() {
         <button className="clear">
           <FontAwesomeIcon icon={faCircleXmark} />
         </button>
-        <FontAwesomeIcon className="loading" icon={faSpinner} />
+        <FontAwesomeIcon className="loading-search" icon={faSpinner} />
         <button className="search-btn">
           <FontAwesomeIcon icon={faMagnifyingGlass} />
         </button>
@@ -38,16 +44,18 @@ function Search() {
           </Link>
         </div>
         <div className="user">
-          {currentUser ? (
+          {userInfo ? (
             <div className="user-menu">
+              <h4 className="user-name">Hi, {userInfo.email} </h4>
               <img src={NoImage} className="user-img" alt="" />
-              <h4 className="user-name">Hi, {currentUser.email} </h4>
               <ul className="user-menu-item">
-                <li className="">
-                  <Link to="/profile">Profile </Link>
+                <li>
+                  <FontAwesomeIcon icon={faUser} />
+                  <Link to="/profile/myprofile">Profile </Link>
                 </li>
-                <li className="select-input-item">
-                  <span className="user-logout" onClick={() => logout()}>
+                <li>
+                  <FontAwesomeIcon icon={faRightFromBracket} />
+                  <span className="user-logout" onClick={logoutHandle}>
                     Log out
                   </span>
                 </li>

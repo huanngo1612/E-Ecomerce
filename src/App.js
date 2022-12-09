@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { privateRoutes, publicRoutes } from "./routes/routes";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import PrivateOutlet from "./components/PrivateOutlet/PrivateOutlet";
+import NotFound from "./components/NotFound/NotFound";
 function App() {
   return (
     <Router>
@@ -41,6 +42,7 @@ function App() {
               );
             })}
           </Route>
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </Router>
