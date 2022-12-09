@@ -12,6 +12,7 @@ import { useState } from "react";
 
 function ListProduct() {
   const [currentPage, setCurrentPage] = useState(1); // Trang hiện tại
+  // eslint-disable-next-line
   const [postsPerPage, setPostPerPage] = useState(4); // Số sản phẩm trên 1 trang
   const totalPosts = Products.length; // Tổng số sản phẩm
   let totalPages = Math.ceil(totalPosts / postsPerPage); // Tổng số trang

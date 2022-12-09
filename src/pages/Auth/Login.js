@@ -1,31 +1,33 @@
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useContext, useRef, useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import loginImg from "../../assets/images/login.png";
-import { AuthConext } from "../../context/AuthContext";
+
+import { login } from "../../Redux/Actions/UserAction";
 import "../Auth/Auth.scss";
 function Login() {
   const navigate = useNavigate();
-  const [error, setError] = useState("");
 
   const emailRef = useRef();
   const passwordRef = useRef();
 
-  const { login, currentUser } = useContext(AuthConext);
-  const submitForm = async (e) => {
-    setError("");
-    e.preventDefault();
-    try {
-      await login(emailRef.current.value, passwordRef.current.value);
+  const dispatch = useDispatch();
+  const userLogin = useSelector((state) => state.userLogin);
+  const { error, loading, userInfo } = userLogin;
+
+  useEffect(() => {
+    if (userInfo) {
       navigate("/");
-    } catch (error) {
-      setError("Invalid Login");
     }
+  }, [userInfo, navigate]);
+
+  const submitForm = async (e) => {
+    e.preventDefault();
+    dispatch(login(emailRef.current.value, passwordRef.current.value));
   };
-  return currentUser ? (
-    <Navigate to="/" />
-  ) : (
+  return (
     <section className="auth">
       <div className="login-img">
         <img src={loginImg} alt="" />
