@@ -11,7 +11,9 @@ function AddAuction() {
   const priceStartRef = useRef();
   const priceRef = useRef();
   const bidRef = useRef();
-  const durationdRef = useRef();
+  const hoursRef = useRef();
+  const minutesRef = useRef();
+  const secondsRef = useRef();
 
   const [preview, setPreview] = useState(null);
 
@@ -32,9 +34,17 @@ function AddAuction() {
   const submitForm = async (e) => {
     e.preventDefault();
     const currentDate = new Date();
-    const dueDate = currentDate.setHours(
-      currentDate.getHours() + Number(durationdRef.current.value)
+    currentDate.setHours(
+      currentDate.getHours() + Number(hoursRef.current.value)
     );
+    currentDate.setMinutes(
+      currentDate.getMinutes() + Number(minutesRef.current.value)
+    );
+    currentDate.setSeconds(
+      currentDate.getSeconds() + Number(secondsRef.current.value)
+    );
+    const dueDate = currentDate.getTime();
+    console.log(dueDate);
     localStorage.setItem("duration", JSON.stringify(dueDate));
   };
 
@@ -125,7 +135,21 @@ function AddAuction() {
                   type="number"
                   placeholder="Nhập số giờ"
                   required
-                  ref={durationdRef}
+                  ref={hoursRef}
+                />
+                <Label>Số phút</Label>
+                <input
+                  type="number"
+                  placeholder="Nhập số phút"
+                  required
+                  ref={minutesRef}
+                />
+                <Label>Số giây</Label>
+                <input
+                  type="number"
+                  placeholder="Nhập số giây"
+                  required
+                  ref={secondsRef}
                 />
               </FormGroup>
             </Col>

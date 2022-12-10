@@ -1,0 +1,15 @@
+.container1 {
+  display: flex;
+  gap: 30px;
+  max-width: 90%;
+  margin: 0 auto;
+  margin-top: 15px;
+  width: var(--default-layout-width);
+}
+.content {
+  flex: 1;
+}
+
+.wrapper {
+  margin: 20px 0;
+}

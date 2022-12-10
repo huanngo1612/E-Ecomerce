@@ -1,7 +1,7 @@
 import DefaultLayout from "../components/Layout/DefaultLayout";
 import HeaderOnly from "../components/Layout/HeaderOnly";
 import ProflieLayout from "../components/Layout/ProfileLayout";
-import AddAuction from "../components/Profile/AddAuction/AddAuction";
+import AdminLayout from "../components/Layout/AdminLayout";
 import Orders from "../components/Profile/Orders/Orders";
 import ProfileSetting from "../components/Profile/ProfileSetting/ProfileSetting";
 import {
@@ -15,6 +15,8 @@ import {
   Cart,
   Checkout,
 } from "../pages/index";
+import AddAuction from "../components/Admin/AddAuction/AddAuction";
+import AdminCategory from "../components/Admin/AdminCategory/AdminCategory";
 //public Routes
 const publicRoutes = [
   { path: "/", component: Home, layout: DefaultLayout },
@@ -38,9 +40,19 @@ const privateRoutes = [
     layout: ProflieLayout,
   },
   {
-    path: "/profile/addproduct",
+    path: "/admin/addproduct",
     component: AddAuction,
-    layout: ProflieLayout,
+    layout: AdminLayout,
+  },
+  {
+    path: "/admin/addcategory",
+    component: AdminCategory,
+    layout: AdminLayout,
+  },
+  {
+    path: "/admin/products",
+    component: AddAuction,
+    layout: AdminLayout,
   },
   {
     path: "/checkout",

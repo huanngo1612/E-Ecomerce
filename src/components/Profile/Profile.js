@@ -17,10 +17,6 @@ function Profile() {
         <FontAwesomeIcon icon={faTruck} />
         <p>Orders List</p>
       </Link>
-      <Link className="link-profile" to="/profile/addproduct">
-        <FontAwesomeIcon icon={faTruck} />
-        <p>Add Product</p>
-      </Link>
     </div>
   );
 }

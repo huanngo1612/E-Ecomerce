@@ -1,5 +1,8 @@
 import { authApp } from "../../config/firebase";
 import {
+  USER_LIST_FAIL,
+  USER_LIST_REQUEST,
+  USER_LIST_SUCCESS,
   USER_LOGIN_FAIL,
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
@@ -76,5 +79,26 @@ export const register = (email, password) => async (dispatch) => {
     });
   } catch (error) {
     dispatch({ type: USER_REGISTER_FAIL, payload: error.message });
+  }
+};
+
+//LIST USER
+export const listUser = () => async (dispatch, getState) => {
+  try {
+    dispatch({ type: USER_LIST_REQUEST });
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    const user = 1;
+    // const { user } = await axios.get("");
+
+    dispatch({
+      type: USER_LIST_SUCCESS,
+      payload: user,
+    });
+  } catch (error) {
+    dispatch({ type: USER_LIST_FAIL, payload: error.message });
   }
 };
