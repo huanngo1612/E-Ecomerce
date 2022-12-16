@@ -7,7 +7,7 @@ function ProflieLayout({ children }) {
   return (
     <div>
       <Header />
-      <div className="wrapper">
+      <div className="wrapper-profile">
         <Container>
           <Row>
             <Col lg="4">

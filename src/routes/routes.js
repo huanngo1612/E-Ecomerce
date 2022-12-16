@@ -17,6 +17,8 @@ import {
 } from "../pages/index";
 import AddAuction from "../components/Admin/AddAuction/AddAuction";
 import AdminCategory from "../components/Admin/AdminCategory/AdminCategory";
+import AdminProduct from "../components/Admin/AdminProduct/AdminProduct";
+import AdminEditProduct from "../components/Admin/AdminEditProduct/AdminEditProduct";
 //public Routes
 const publicRoutes = [
   { path: "/", component: Home, layout: DefaultLayout },
@@ -51,7 +53,12 @@ const privateRoutes = [
   },
   {
     path: "/admin/products",
-    component: AddAuction,
+    component: AdminProduct,
+    layout: AdminLayout,
+  },
+  {
+    path: "/admin/products/:id/edit",
+    component: AdminEditProduct,
     layout: AdminLayout,
   },
   {

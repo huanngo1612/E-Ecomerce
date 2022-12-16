@@ -8,6 +8,8 @@ import Helmet from "../../components/Helmet/Helmet";
 import Loading from "../../components/Loading/Loading";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../Redux/Actions/UserAction";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Register() {
   const navigate = useNavigate();
@@ -16,6 +18,8 @@ function Register() {
   const passwordRef = useRef();
   const confirmPasswordRef = useRef();
   const [error1, setError1] = useState();
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const dispatch = useDispatch();
   const userRegister = useSelector((state) => state.userRegister);
@@ -37,6 +41,13 @@ function Register() {
     dispatch(register(emailRef.current.value, passwordRef.current.value));
   };
 
+  const handleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+  const handleShowConfirmPassword = () => {
+    setShowConfirmPassword(!showConfirmPassword);
+  };
+
   return (
     <Helmet title="Register">
       <section className="auth">
@@ -45,12 +56,12 @@ function Register() {
             <Loading />
           ) : (
             <Row>
-              <Col lg="6" className="m-auto text-center">
+              <Col lg="4" className="m-auto text-center">
                 <div className="register-img">
                   <img src={registerImg} alt="" />
                 </div>
               </Col>
-              <Col lg="6" className="m-auto text-center">
+              <Col lg="4" className="m-auto text-center">
                 <div className="form">
                   <h2>Register</h2>
                   <Form>
@@ -65,20 +76,32 @@ function Register() {
                     </FormGroup>
                     <FormGroup className="form-group">
                       <input
-                        type="password"
+                        type={showPassword ? "text" : "password"}
                         placeholder="Password"
                         required
                         ref={passwordRef}
                       />
+                      <span onClick={handleShowPassword}>
+                        <FontAwesomeIcon
+                          className="icon-eyes"
+                          icon={showPassword ? faEye : faEyeSlash}
+                        />
+                      </span>
                     </FormGroup>
 
                     <FormGroup className="form-group">
                       <input
-                        type="password"
+                        type={showConfirmPassword ? "text" : "password"}
                         placeholder="Confirm Password"
                         required
                         ref={confirmPasswordRef}
                       />
+                      <span onClick={handleShowConfirmPassword}>
+                        <FontAwesomeIcon
+                          className="icon-eyes"
+                          icon={showConfirmPassword ? faEye : faEyeSlash}
+                        />
+                      </span>
                     </FormGroup>
 
                     <button onClick={submitForm}>Register</button>

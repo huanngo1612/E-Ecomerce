@@ -1,6 +1,7 @@
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { Col, Container, Form, FormGroup, Row } from "reactstrap";
@@ -16,6 +17,7 @@ function Login() {
 
   const emailRef = useRef();
   const passwordRef = useRef();
+  const [showPassword, setShowPassword] = useState(false);
 
   const dispatch = useDispatch();
   const userLogin = useSelector((state) => state.userLogin);
@@ -31,6 +33,11 @@ function Login() {
     e.preventDefault();
     dispatch(login(emailRef.current.value, passwordRef.current.value));
   };
+
+  const handleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <Helmet title="Login">
       <section className="auth">
@@ -39,12 +46,12 @@ function Login() {
             <Loading />
           ) : (
             <Row>
-              <Col lg="6" className="m-auto text-center">
+              <Col lg="4" className="m-auto text-center">
                 <div className="login-img">
                   <img src={loginImg} alt="" />
                 </div>
               </Col>
-              <Col lg="6">
+              <Col lg="4" className="m-auto text-center">
                 <div className="form">
                   <h2>Login</h2>
                   <Form>
@@ -58,13 +65,19 @@ function Login() {
                         ref={emailRef}
                       />
                     </FormGroup>
-                    <FormGroup>
+                    <FormGroup className="form-group">
                       <input
-                        type="password"
+                        type={showPassword ? "text" : "password"}
                         placeholder="Password"
                         required
                         ref={passwordRef}
                       />
+                      <span onClick={handleShowPassword}>
+                        <FontAwesomeIcon
+                          className="icon-eyes"
+                          icon={showPassword ? faEye : faEyeSlash}
+                        />
+                      </span>
                     </FormGroup>
                     <button onClick={submitForm}>Login</button>
                     <p>--or--</p>

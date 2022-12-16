@@ -15,9 +15,12 @@
   height: 60px;
   margin-right: 40px;
 }
-
+.search1 {
+  width: 800px;
+  position: relative;
+}
 .search {
-  width: 840px;
+  max-width: 800px;
   position: relative;
   display: flex;
   height: var(--search-height);
@@ -52,7 +55,9 @@
 .search:focus-within {
   border-color: rgba(22, 24, 35, 0.2);
 }
-
+.search-result {
+  margin: 10px;
+}
 .clear,
 .loading-search {
   position: absolute;
@@ -62,9 +67,33 @@
 }
 
 .loading-search {
-  animation: spinner 3s linear infinite;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.719);
+  animation: spinner 1s linear infinite;
+}
+@keyframes spinner {
+  from {
+    transform: translateY(-50%) rotate(0);
+  }
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+.wrapper-tippy {
+  width: 100%;
+  max-height: min((100vh - 96px) - 60px, 734px);
+  min-height: 100px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgb(0 0 0/12%) 0px 2px 12px;
+  border-radius: 8px;
 }
 
+.search-title {
+  padding-top: 10px;
+  padding-left: 10px;
+}
 .search-btn {
   width: var(--search-button-width);
   height: 100%;
@@ -135,10 +164,7 @@
   width: 40px;
   border-radius: 50%;
 }
-.user-menu:hover .user-menu-item {
-  display: block;
-  z-index: 10;
-}
+
 .user-menu-item {
   position: absolute;
   left: 20px;
@@ -147,7 +173,6 @@
   background-color: rgb(247, 235, 235);
   padding: 12px 0;
   font-weight: 500;
-  display: none;
   line-height: 32px;
   border-radius: 7px;
   li {
@@ -165,4 +190,23 @@
       padding-left: 10px;
     }
   }
+}
+
+.user-link,
+.user-logout {
+  width: 100%;
+  padding: 15px;
+  margin-right: 50px;
+  &:hover {
+    background-color: rgba(22, 24, 35, 0.03);
+    color: black;
+  }
+}
+
+.user-icon {
+  margin: 0 10px;
+}
+.user-logout {
+  cursor: pointer;
+  display: flex;
 }
